@@ -35,7 +35,7 @@ namespace hospital_client
             });
 
             var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            string connStr;
+            string connStr; 
 
             if (env == "Development")
             {
