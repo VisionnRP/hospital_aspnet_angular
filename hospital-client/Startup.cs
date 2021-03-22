@@ -34,7 +34,7 @@ namespace hospital_client
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddDbContext<EFTodoDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ttttDBConnection")));
+            services.AddDbContext<EFTodoDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ssssDBConnection")));
             services.AddTransient<IPatientsRepository, PatientRepository>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions

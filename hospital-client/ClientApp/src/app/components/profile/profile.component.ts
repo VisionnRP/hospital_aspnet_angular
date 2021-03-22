@@ -11,7 +11,7 @@ import { AcademicTitleService } from '../../services/academic-title.service';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: '.profile.component.html',
+  templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using hospital_client;
 using hospital_client.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace hospital_client.Controllers
 {
@@ -41,11 +42,12 @@ namespace hospital_client.Controllers
             }
 
             return View(academicTitle);
-        }     
+        }
 
         // POST: AcademicTitles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] AcademicTitle academicTitle)
         {
@@ -62,6 +64,7 @@ namespace hospital_client.Controllers
         // POST: AcademicTitles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Edit(Guid id, [FromBody] AcademicTitle academicTitle)
         {
@@ -92,8 +95,9 @@ namespace hospital_client.Controllers
             }
             return View(academicTitle);
         }
-     
+
         // POST: AcademicTitles/Delete/5
+        [Authorize]
         [HttpGet, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {

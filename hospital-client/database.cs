@@ -12,10 +12,6 @@ namespace hospital_client
         public DbSet<AppointmentType> appointmentType { get; set; }
         public DbSet<AcademicTitle> academicTitle { get; set; }
         public EFTodoDBContext(DbContextOptions<EFTodoDBContext> options) : base(options)
-        {
-            Database.EnsureCreated();
-        }
-       
-
+        {}
     }
 }
