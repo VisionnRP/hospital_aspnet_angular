@@ -34,37 +34,39 @@ namespace hospital_client
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            string connStr; 
-
-            if (env == "Development")
+            services.AddDbContext<DbContext>(x =>
             {
-                connStr = Configuration.GetConnectionString("DemoConnection");
+                var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                string connStr;
+
+                if (env == "Development")
+                {
+                    connStr = Configuration.GetConnectionString("DemoConnection");
 
 
-            }
-            else
-            {
-                // Use connection string provided at runtime by Heroku.
-                var connUrl = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
+                }
+                else
+                {
+                    // Use connection string provided at runtime by Heroku.
+                    var connUrl = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
 
-                connUrl = connUrl.Replace("mysql://", string.Empty);
-                var userPassSide = connUrl.Split("@")[0];
-                var hostSide = connUrl.Split("@")[1];
+                    connUrl = connUrl.Replace("mysql://", string.Empty);
+                    var userPassSide = connUrl.Split("@")[0];
+                    var hostSide = connUrl.Split("@")[1];
 
-                var connUser = userPassSide.Split(":")[0];
-                var connPass = userPassSide.Split(":")[1];
-                var connHost = hostSide.Split("/")[0];
-                var connDb = hostSide.Split("/")[1].Split("?")[0];
-
-
-                connStr = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
+                    var connUser = userPassSide.Split(":")[0];
+                    var connPass = userPassSide.Split(":")[1];
+                    var connHost = hostSide.Split("/")[0];
+                    var connDb = hostSide.Split("/")[1].Split("?")[0];
 
 
+                    connStr = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
 
-            }
 
-            x.UseMySql(connStr);
+
+                }
+
+            });
 
 
             services.AddDbContext<EFTodoDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ttttDBConnection")));
