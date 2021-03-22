@@ -1,0 +1,38 @@
+<div class="h-100">
+  <mat-accordion>
+    <mat-expansion-panel [ngStyle]="{ background: appointmentType?.color }" class="accordion-background" hideToggle *ngFor="let appointmentType of (appointmentType$ | async)">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="h-100">
+          <div fxFlex="100%" class="w-100" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+              <span>{{ appointmentType?.name }}</span>
+              <span>{{ appointmentType?.duration }} min</span>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px">
+              <button color="primary"
+                      mat-raised-button
+                      (click)="onEdit(appointmentType); $event.stopPropagation()">
+                Edit
+              </button>
+              <button color="warn"
+                      mat-raised-button
+                      (click)="onDelete(appointmentType); $event.stopPropagation()">
+                Delete
+              </button>
+            </div>
+          </div>
+          
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="w-100" fxLayout="column">
+        
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="w-100 mt-3">
+  <button mat-button (click)="onCreate()">Create</button>
+</div>
+

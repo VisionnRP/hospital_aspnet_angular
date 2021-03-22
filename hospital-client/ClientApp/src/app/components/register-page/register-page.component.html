@@ -1,0 +1,26 @@
+<div class="h-100" [ngStyle]="{ background: '#27273ced', color: 'white' }" [formGroup]="formGroup">
+
+  <mat-form-field class="w-100" appearance="outline">
+    <input placeholder="firstname" matInput formControlName="firstname">
+  </mat-form-field>
+
+  <mat-form-field class="w-100"  appearance="outline">
+    <input placeholder="lastname" matInput formControlName="lastname">
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <input placeholder="email" matInput formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <input placeholder="password" type="password" matInput formControlName="password">
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <input placeholder="confirm password" type="password" matInput formControlName="confirmPassword">
+  </mat-form-field>
+
+  <button [disabled]="!formGroup.valid && formGroup.get('confirmPassword').value !== formGroup.get('password').value" class="w-100" [ngStyle]="{ background: '#27273ced', color: 'white' }" mat-raised-button (click)="onSubmit()">Submit</button>
+  <button class="w-100" [ngStyle]="{ background: '#27273ced', color: 'white' }" mat-raised-button (click)="onAuthPage()">Go to Authorization page</button>
+
+</div>

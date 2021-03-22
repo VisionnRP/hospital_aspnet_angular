@@ -1,0 +1,41 @@
+<div class="h-100">
+  <mat-accordion>
+    <mat-expansion-panel class="accordion-background" hideToggle *ngFor="let practitioner of (practitioner$ | async)">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="h-100">
+          <div fxFlex="100%" class="w-100" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+            <div fxFlex="40%" fxLayout="row" fxLayoutAlign="start center">
+              <span> {{practitioner?.academicTitle?.name}} {{ practitioner.firstname }} {{ practitioner.lastname }}</span>
+            </div>
+            <div fxFlex="20%" fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-icon>{{ practitioner.sex === sex.female ? 'female' : 'male' }}</mat-icon>
+            </div>
+            
+
+            <div  fxFlex="40%" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px">
+              <button color="primary"
+                      mat-raised-button
+                      (click)="onEdit(practitioner); $event.stopPropagation()">
+                Edit
+              </button>
+              <button color="warn"
+                      mat-raised-button
+                      (click)="onDelete(practitioner); $event.stopPropagation()">
+                Delete
+              </button>
+            </div>
+          </div>
+          
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="w-100" fxLayout="column">
+        
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="w-100 mt-3">
+  <button mat-button (click)="onCreate()">Create</button>
+</div>
+

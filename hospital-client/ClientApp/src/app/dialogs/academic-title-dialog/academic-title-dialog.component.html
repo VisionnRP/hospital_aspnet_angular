@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{ data?.header || 'Title' }}</h1>
+<div mat-dialog-content fxLayout="column" [ngStyle]="{ height: '200px'}">
+  <div [formGroup]="formGroup">
+    <mat-form-field class="w-100" appearance="outline">
+      <input placeholder="title" matInput formControlName="name">
+    </mat-form-field>
+    </div>
+  </div>
+
+<div mat-dialog-actions fxLayoutAlign="end center">
+  <button (click)="onCancel()" mat-raised-button color="warn">Cancel</button>
+  <button [disabled]="!formGroup?.valid" (click)="onSave()" mat-raised-button color="accent">Save</button>
+</div>

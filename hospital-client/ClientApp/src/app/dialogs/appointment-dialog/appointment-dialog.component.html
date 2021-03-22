@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>{{ data?.header || 'Title' }}</h1>
+<div mat-dialog-content fxLayout="column" [ngStyle]="{ height: '450px'}">
+  <div [formGroup]="formGroup">
+
+    <mat-form-field>
+      <input matInput formControlName="begin" [matDatepicker]="picker1" placeholder="Choose a begin date">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="end" [matDatepicker]="picker2" placeholder="Choose a end date">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>practitioner</mat-label>
+      <mat-select formControlName="practitionerId" required>
+        <mat-option *ngFor="let practitioner of data.practitioners" [value]="practitioner?.id">
+          {{practitioner?.firstname}} {{practitioner?.lastname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>academic title</mat-label>
+      <mat-select formControlName="appointmentTypeId" required>
+        <mat-option *ngFor="let appointmentType of data.appointmentTypes" [value]="appointmentType?.id">
+          {{appointmentType?.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>patient</mat-label>
+      <mat-select formControlName="patientId" required>
+        <mat-option *ngFor="let patient of data.patients" [value]="patient?.id">
+          {{patient?.firstname}} {{patient?.lastname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="outline">
+      <input placeholder="status" matInput formControlName="status">
+    </mat-form-field>
+  </div>
+
+</div>
+<div mat-dialog-actions fxLayoutAlign="end center">
+  <button (click)="onCancel()" mat-raised-button color="warn">Cancel</button>
+  <button [disabled]="!formGroup?.valid" (click)="onSave()" mat-raised-button color="accent">Save</button>
+</div>

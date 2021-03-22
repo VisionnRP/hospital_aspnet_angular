@@ -1,0 +1,41 @@
+<div class="h-100">
+  <mat-accordion>
+    <mat-expansion-panel [ngStyle]="{background: appointment?.appointmentType?.color}" class="accordion-background" hideToggle *ngFor="let appointment of (appointments$ | async)">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="h-100">
+          <div fxFlex="100%" class="w-100" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+              <span>{{ appointment?.status }}</span>
+              <span>{{ appointment?.begin | date: 'shortDate' }}</span>
+              <span>{{ appointment?.end | date: 'shortDate' }}</span>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px">
+              <button color="primary"
+                      mat-raised-button
+                      (click)="onEdit(appointment); $event.stopPropagation()">
+                Edit
+              </button>
+              <button color="warn"
+                      mat-raised-button
+                      (click)="onDelete(appointment); $event.stopPropagation()">
+                Delete
+              </button>
+            </div>
+          </div>
+          
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="w-100" fxLayout="column" fxLayoutGap="16px">
+        <span fxLayout="row" fxLayoutAlign="start center" FxLayoutGap="16px">Practitioner: {{ appointment?.practitioner?.academicTitle?.name }} {{ appointment?.practitioner?.firstname }} {{ appointment?.practitioner?.lastname }} </span>
+        <span fxLayout="row" fxLayoutAlign="start center" FxLayoutGap="16px">Patient: {{ appointment?.patient?.firstname }} {{ appointment?.patient?.lastname }} </span>
+        <span fxLayout="row" fxLayoutAlign="start center" FxLayoutGap="16px">Appoitnment Type: {{ appointment?.appointmentType?.name }} {{  appointment?.appointmentType?.name }} min </span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="w-100 mt-3">
+  <button mat-button (click)="onCreate()">Create</button>
+</div>
+
