@@ -10,7 +10,7 @@ using hospital_client;
 namespace hospital_client.Migrations
 {
     [DbContext(typeof(EFTodoDBContext))]
-    [Migration("20210322231529_initial")]
+    [Migration("20210323223239_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
