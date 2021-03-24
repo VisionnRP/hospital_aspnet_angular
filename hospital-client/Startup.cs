@@ -45,7 +45,7 @@ namespace hospital_client
                 if (env == "Development")
                 {
                     // Use connection string from file.
-                    connStr = Configuration.GetConnectionString("ApplicationDbContext");
+                    connStr = Configuration.GetConnectionString("DefaultConnection");
                 }
                 else
                 {
@@ -73,8 +73,8 @@ namespace hospital_client
 
 
             // services.AddDbContext<EFTodoDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ssssDBConnection")));
-            services.AddDbContext<EFTodoDBContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<EFTodoDBContext>(options =>
+            //options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IPatientsRepository, PatientRepository>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
