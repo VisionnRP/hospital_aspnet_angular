@@ -72,7 +72,7 @@ namespace hospital_client
             });
 
 
-            // services.AddDbContext<EFTodoDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ssssDBConnection")));
+             //services.AddDbContext<EFTodoDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ssssDBConnection")));
             //services.AddDbContext<EFTodoDBContext>(options =>
             //options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 

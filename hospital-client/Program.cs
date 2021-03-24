@@ -21,6 +21,7 @@ namespace hospital_client
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+               
                 });
 
     }
