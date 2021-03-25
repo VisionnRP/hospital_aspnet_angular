@@ -4,10 +4,10 @@
       <mat-expansion-panel-header>
         <mat-panel-title class="h-100">
           <div fxFlex="100%" class="w-100" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
-            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
-              <span>{{ appointment?.status }}</span>
-              <span>{{ appointment?.begin | date: 'shortDate' }}</span>
-              <span>{{ appointment?.end | date: 'shortDate' }}</span>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+              <span>Status: {{ appointment?.status }}</span>
+              <span>Begin date: {{ appointment?.begin | date: 'shortDate' }}</span>
+              <span>End date: {{ appointment?.end | date: 'shortDate' }}</span>
             </div>
 
             <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px">

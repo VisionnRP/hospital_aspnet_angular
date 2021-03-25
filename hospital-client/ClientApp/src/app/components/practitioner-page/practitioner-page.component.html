@@ -5,7 +5,7 @@
         <mat-panel-title class="h-100">
           <div fxFlex="100%" class="w-100" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
             <div fxFlex="40%" fxLayout="row" fxLayoutAlign="start center">
-              <span> {{practitioner?.academicTitle?.name}} {{ practitioner.firstname }} {{ practitioner.lastname }}</span>
+              <span>Practitioner fullname: {{practitioner?.academicTitle?.name}} {{ practitioner.firstname }} {{ practitioner.lastname }}</span>
             </div>
             <div fxFlex="20%" fxLayout="row" fxLayoutAlign="space-between center">
               <mat-icon>{{ practitioner.sex === sex.female ? 'female' : 'male' }}</mat-icon>

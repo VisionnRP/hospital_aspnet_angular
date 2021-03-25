@@ -26,9 +26,6 @@ namespace hospital_client.Controllers
         [HttpPost("Registration")]
         public async Task<UserForRegistrationDto> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
-            //if (userForRegistration == null || !ModelState.IsValid)
-            //    Console.WriteLine(ModelState.IsValid);
-            //    return null;
 
             User user = new User { Email = userForRegistration.Email, UserName = userForRegistration.Email };
             var result = await _userManager.CreateAsync(user, userForRegistration.Password);

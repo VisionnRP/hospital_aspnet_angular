@@ -3,7 +3,7 @@
     <mat-expansion-panel class="accordion-background" hideToggle *ngFor="let academicTitle of (academicTitles$ | async)">
       <mat-expansion-panel-header>
         <mat-panel-title fxLayout="row" class="h-100" fxLayoutAlign="space-between center">
-          <span>{{ academicTitle?.name }}</span>
+          <span>Academic Title: {{ academicTitle?.name }}</span>
           <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px">
             <button mat-raised-button (click)="onEdit(academicTitle); $event.stopPropagation()" color="accent">Edit</button>
             <button mat-raised-button (click)="onDelete(academicTitle); $event.stopPropagation()" color="warn">Delete</button>

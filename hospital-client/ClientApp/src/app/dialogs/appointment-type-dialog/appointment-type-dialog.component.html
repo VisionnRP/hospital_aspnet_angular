@@ -7,9 +7,13 @@
     <mat-form-field class="w-100" appearance="outline">
       <input type="number" placeholder="duration" matInput formControlName="duration">
     </mat-form-field>
-    <input [style.background]="formGroup.get('color').value"
-           [colorPicker]="formGroup.get('color').value"
-           (colorPickerChange)="colorChange($event)" />
+    <div fxLayout="row" fxLayoutGap="16px">
+      <span>Appointment Type color</span>
+      <input [style.background]="formGroup.get('color').value"
+             [colorPicker]="formGroup.get('color').value"
+             (colorPickerChange)="colorChange($event)" />
+    </div>
+    
   </div>
 </div>
 
